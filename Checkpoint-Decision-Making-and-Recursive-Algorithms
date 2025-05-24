@@ -1,0 +1,53 @@
+ 1. Prise de décision
+Tâche 1 : Vérificateur d’année bissextile
+
+function estBissextile(annee) {
+    if ((annee % 4 === 0 && annee % 100 !== 0) || (annee % 400 === 0)) {
+        console.log(`${annee} est une année bissextile.`);
+    } else {
+        console.log(`${annee} n'est pas une année bissextile.`);
+    }
+}
+estBissextile(2024);
+estBissextile(2100);
+ Tâche 2 : Prix des billets de cinéma
+
+function prixBillet(age) {
+    if (age <= 12) {
+        console.log("Prix du billet : 10 $");
+    } else if (age >= 13 && age <= 17) {
+        console.log("Prix du billet : 15 $");
+    } else if (age >= 18) {
+        console.log("Prix du billet : 20 $");
+    } else {
+        console.log("Âge invalide.");
+    }
+}
+prixBillet(10);
+prixBillet(16);
+prixBillet(25);
+2. Récursivité
+ Tâche 1 : Séquence de Fibonacci
+
+function fibonacci(n) {
+    if (n <= 1) return n;
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}
+console.log("Fibonacci(6) =", fibonacci(6)); // Affiche 8
+ Tâche 2 : Vérification de palindrome
+
+function estPalindrome(chaine) {
+    // Nettoyage : suppression des caractères non alphanumériques et mise en minuscules
+    chaine = chaine.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
+
+    function verifier(str) {
+        if (str.length <= 1) return true;
+        if (str[0] !== str[str.length - 1]) return false;
+        return verifier(str.slice(1, -1));
+    }
+
+    return verifier(chaine);
+}
+
+console.log(estPalindrome("Élu par cette crapule")); // true
+console.log(estPalindrome("Bonjour")); // false
